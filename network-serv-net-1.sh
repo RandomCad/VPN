@@ -27,12 +27,12 @@ echo 'network:
       addresses: [192.168.1.1/24]
     enp0s9:
       dhcp4: no
-      addresses: [5.4.3.1/24]
+      addresses: [5.4.2.2/24]
       routes:
       - to: default
-        via: 5.4.3.2
-      - to: 192.168.2.0/24
-        via: 5.4.3.2' >> $FILE
+        via: 5.4.2.1
+      - to: 5.4.3.0/24
+        via: 5.4.2.1' >> $FILE
 
 sudo chmod 600 $FILE
 
