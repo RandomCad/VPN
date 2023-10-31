@@ -30,7 +30,7 @@ echo 'network:
       routes:
       - to: default
         via: 5.4.3.1
-      - to: 192.168.1.0/24
+      - to: 5.4.2.0/24
         via: 5.4.3.1' >> $FILE
 
 sudo chmod 600 $FILE
