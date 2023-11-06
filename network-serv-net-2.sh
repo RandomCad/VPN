@@ -53,6 +53,18 @@ else
   echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 fi
 
+sudo systemctl restart systemd-resolved.service
+
+#making shure the nat networking is run on reboot
+if sudo crontab -l -u root | grep -q '@reboot sudo iptables -t nat -A POSTROUTING -o enp0s9 -j MASQUERADE' ; then
+  echo '...'
+else
+  { sudo crontab -l -u root ; echo '@reboot sudo iptables -t nat -A POSTROUTING -o enp0s9 -j MASQUERADE' ; } | sudo crontab -u root -
+fi
+
+#running nat-networking command
+sudo iptables -t nat -A POSTROUTING -o enp0s9 -j MASQUERADE
+
 #cleanup
 rm zwi -f
 

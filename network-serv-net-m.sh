@@ -48,7 +48,16 @@ else
 fi
 
 sudo netplan apply
-      
+    
+#making shure the nat networking is run on reboot
+if sudo crontab -l -u root | grep -q '@reboot sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE' ; then
+  echo '...'
+else
+  { sudo crontab -l -u root ; echo '@reboot sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE' ; } | sudo crontab -u root -
+fi
+
+#running nat-networking command
+sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE  
 
 #cleanup
 rm zwi -f
