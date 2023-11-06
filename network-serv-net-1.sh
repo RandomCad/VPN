@@ -53,6 +53,7 @@ if grep -q 'nameserver 8.8.8.8' /etc/resolv.conf || grep -q 'nameserver 8.8.4.4'
 else
   echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
 fi
+
 sudo systemctl restart systemd-resolved.service
 
 #making shure the nat networking is run on reboot

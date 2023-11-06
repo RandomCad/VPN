@@ -33,6 +33,15 @@ sudo chmod 600 $FILE
 
 sudo netplan apply
       
+#add nameserver
+if grep -q 'nameserver 8.8.8.8' /etc/resolv.conf || grep -q 'nameserver 8.8.4.4' /etc/resolv.conf ; then
+  #nameserver already set
+  echo 'nameserver is set corectly'
+else
+  echo 'nameserver 8.8.8.8' >> /etc/resolv.conf
+fi
+
+sudo systemctl restart systemd-resolved.service
 
 #cleanup
 rm zwi -f
