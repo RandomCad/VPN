@@ -26,8 +26,6 @@ echo 'network:
       addresses: [192.168.1.2/24]
       routes:
       - to: default
-        via: 192.168.1.1
-      - to: 192.168.2.0/24
         via: 192.168.1.1' >> $FILE
 
 sudo chmod 600 $FILE

@@ -29,8 +29,6 @@ echo 'network:
       addresses: [5.4.3.2/24]
       routes:
       - to: default
-        via: 5.4.3.1
-      - to: 5.4.2.0/24
         via: 5.4.3.1' >> $FILE
 
 sudo chmod 600 $FILE
