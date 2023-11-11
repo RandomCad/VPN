@@ -27,5 +27,14 @@ fi
 
 echo "$Blue Checking network setup. Done $Work of $Total  $White"
 Work=$(($Work + 1))
-
+ 
 #chek the instalation of netplan
+echo "$Blue Checking the instalation of Netplan. Start $Work of $Total $White"
+if ! $(apt-cache policy netplan.io | grep -qe "Installled: .*ubuntu.*$") ; then
+  echo "$Red Netplan is not instaled. Pleas install and use netplan as standart Networkmaneger $White"
+  return 1
+fi
+echo "$Blue Checking the instalation of Netplan. Done $Work of $Total $White"
+Work=$(($Work + 1))
+
+
