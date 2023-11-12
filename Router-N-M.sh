@@ -96,5 +96,15 @@ fi
 echo "$Blue Checking network. Done $Work of $Total $White"
 
 #TODO: add packed interception software
-
+#chek the instalation of tcpdump
+echo "$Blue Checking the instalation of tcpdump. Start $Work of $Total $White"
+if ! $(apt-cache policy tcpdump | grep -qe "Installled: .*ubuntu.*$") ; then
+  echo "$White Installing tcpdump. $White"
+  sudo apt update
+  sudo apt install tcpdump
+else
+  echo "$White Tcpdump is already instaled. This script wont update it. The commands my varie."
+fi
+echo "$Blue Checking the instalation of tcpdum. Done $Work of $Total $White"
+Work=$(($Work + 1))
 
