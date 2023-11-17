@@ -28,6 +28,8 @@ echo 'network:
     enp0s9:
       dhcp4: no
       addresses: [5.4.2.2/24]
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
       routes:
       - to: default
         via: 5.4.2.1' >> $FILE
@@ -44,28 +46,5 @@ fi
 
 sudo netplan apply
       
-#add nameserver
-if grep -q 'nameserver 8.8.8.8' /etc/resolv.conf || grep -q 'nameserver 8.8.4.4' /etc/resolv.conf ; then
-  #nameserver already set
-  echo 'nameserver is set corectly'
-else
-  sed -i -e '$anameserver 8.8.8.8' /etc/resolv.conf
-fi
-
-sudo systemctl restart systemd-resolved.service
-
-#making shure the nat networking is run on reboot
-if sudo crontab -l -u root | grep -q '@reboot sudo iptables -t nat -A POSTROUTING -o enp0s9 -j MASQUERADE' ; then
-  echo '...'
-else
-  { sudo crontab -l -u root ; echo '@reboot sudo iptables -t nat -A POSTROUTING -o enp0s9 -j MASQUERADE' ; } | sudo crontab -u root -
-fi
-
-#running nat-networking command
-sudo iptables -t nat -A POSTROUTING -o enp0s9 -j MASQUERADE
-
 #cleanup
 rm zwi -f
-
-
-
