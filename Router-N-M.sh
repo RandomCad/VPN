@@ -64,7 +64,7 @@ echo "$Blue Checking network. Start $Work of $Total $White"
 Error=0
 echo "$Blue Checking internet conection. Start $Work.1 of $Total $White"
 #testing that google is reachabel
-ping -I enp0s3 -c 100 -i 0.002 8.8.8.8 | tee zwi
+ping -q -I enp0s3 -c 100 -i 0.002 8.8.8.8 | tee zwi
 if ! cat zwi | grep -q "received, .% packet" ; then
   echo "$Red Connecting to google failed. Pleas make shure, that the enp0s3 intervace is conected to the internet.$White"
   Error=1
@@ -72,7 +72,7 @@ fi
 echo "$Blue Checking internet conection. Done $Work.1 of $Total $White"
 
 echo "$Blue Checking router net one conection. Start $Work.2 of $Total $White"
-ping -I enp0s8 -c 1000 -f 5.4.2.2 | tee zwi
+ping -Iq enp0s8 -c 1000 -f 5.4.2.2 | tee zwi
 if ! cat zwi | grep -q "received, .% packet" ; then
   echo "$Red Connecting to router net one failed. Pleas make shure, that the router is set up and connected.$White"
   Error=1
@@ -80,7 +80,7 @@ fi
 echo "$Blue Checking router net one conection. Done $Work.2 of $Total $White"
 
 echo "$Blue Checking router net too conection. Start $Work.3 of $Total $White"
-ping -I enp0s9 -c 1000 -f 5.4.3.2 | tee zwi
+ping -Iq enp0s9 -c 1000 -f 5.4.3.2 | tee zwi
 if ! cat zwi | grep -q "received, .% packet" ; then
   echo "$Red Connecting to router net too failed. Pleas make shure, that the router is set up and connected.$White"
   Error=1
