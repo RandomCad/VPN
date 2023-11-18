@@ -36,7 +36,7 @@ Work=$(($Work + 1))
 
 #run the static Ip setup
 echo "$Blue Setting up static ip addresses and ip forwarding. Start $Work of $Total $White"
-sudo ./Router-N-M-Netplan-Conf.sh
+sudo bash ./Router-N-M-Netplan-Conf.sh
 echo "$Blue Static ip address setup. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
