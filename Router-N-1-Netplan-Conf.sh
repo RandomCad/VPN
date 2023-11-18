@@ -1,7 +1,5 @@
 #! /usr/bin/bash
 
-
-
 #netplan files are worked alpabeticaly and the settings of the latest file is taken. If therfor the settings are writen in the last file thei will take effecte
 for i in $(ls /etc/netplan/ | grep '.*yaml'); do
 	echo $i

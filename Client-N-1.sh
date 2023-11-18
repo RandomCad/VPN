@@ -7,7 +7,7 @@ White="\033[0m"
 Total=4
 Work=1
 
-echo "$Green Running the central setup script for the net one router.$White"
+echo "$Green Running the central setup script for the net one client.$White"
 
 #Testing the existenc of the network adapters and what ty can reach 
 echo "$Blue Checking network setup. Start $Work of $Total  $White"
