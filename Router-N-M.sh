@@ -88,7 +88,7 @@ fi
 echo "$Blue Checking router net too conection. Done $Work.3 of $Total $White"
 
 #final checking if network is setup
-if (( $Error==1)) ; then
+if [ "$Error" -eq "1" ] ; then
   echo "$Red Network test didn't run corectly. This isn't a porbelm fore this machine but may hinder on other machines. $White"
   echo "$Yellow If the configuration fails enshurd, that netplan is the default network maneger!$White"
   return 1
