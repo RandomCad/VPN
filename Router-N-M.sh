@@ -4,7 +4,7 @@ Yellow="\033[1;33m"
 Blue="\033[1;34m"
 White="\033[0m"
 
-Total=4
+Total=6
 Work=1
 
 echo "$Green Running the central setup script for the middel router.$White"
@@ -94,11 +94,12 @@ if [ "$Error" -eq "1" ] ; then
   return 1
 fi
 echo "$Blue Checking network. Done $Work of $Total $White"
+Work=$(($Work + 1))
 
 #TODO: add packed interception software
 #chek the instalation of tcpdump
 echo "$Blue Checking the instalation of tcpdump. Start $Work of $Total $White"
-if ! $(apt-cache policy tcpdump | grep -qe "Installled: .*ubuntu.*$") ; then
+if ! $(apt-cache policy tcpdump | grep -qe "Installed: .*ubuntu.*$") ; then
   echo "$White Installing tcpdump. $White"
   sudo apt update
   sudo apt install tcpdump
