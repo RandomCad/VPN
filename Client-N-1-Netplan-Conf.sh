@@ -1,6 +1,5 @@
 #! /usr/bin/bash
 
-
 #netplan files are worked alpabeticaly and the settings of the latest file is taken. If therfor the settings are writen in the last file thei will take effecte
 for i in $(ls /etc/netplan/ | grep '.*yaml'); do
 	echo $i
@@ -24,6 +23,8 @@ echo 'network:
     enp0s8:
       dhcp4: no
       addresses: [192.168.1.2/24]
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
       routes:
       - to: default
         via: 192.168.1.1' >> $FILE
@@ -31,19 +32,6 @@ echo 'network:
 sudo chmod 600 $FILE
 
 sudo netplan apply
- 
-#add nameserver
-if grep -q 'nameserver 8.8.8.8' /etc/resolv.conf || grep -q 'nameserver 8.8.4.4' /etc/resolv.conf ; then
-  #nameserver already set
-  echo 'nameserver is set corectly'
-else
-  sed -i -e '$anameserver 8.8.8.8' /etc/resolv.conf
-fi     
-
-sudo systemctl restart systemd-resolved.service
 
 #cleanup
 rm zwi -f
-
-
-
