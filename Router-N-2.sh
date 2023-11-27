@@ -71,6 +71,7 @@ echo "$Blue Aktivating NAT-networking for now. Done $Work.2 of $Total $White"
 echo "$Blue Setting up NAT-networking. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
+ping -qI enp0s3 -c 1 8.8.8.8 2>&1 > /dev/null
 
 echo "$Blue Checking network. Start $Work of $Total $White"
 Error=0

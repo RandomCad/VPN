@@ -71,6 +71,8 @@ echo "$Blue Aktivating NAT-networking for now. Done $Work.2 of $Total $White"
 echo "$Blue Setting up NAT-networking. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
+#Avther the reset the networkinterface dosen't jet have a ip address. It gets an Ip throw this ping call.
+ping -qI enp0s9 -c 1 8.8.8.8 2>&1 > /dev/null  
 
 echo "$Blue Checking network. Start $Work of $Total $White"
 Error=0
