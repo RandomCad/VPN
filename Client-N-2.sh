@@ -54,6 +54,8 @@ sudo bash ./Client-N-2-Netplan-Conf.sh
 echo "$Blue Static ip address setup. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
+ping -qI enp0s8 -c 1 8.8.8.8 2>&1 > /dev/null
+
 echo "$Blue Checking internet conection. Start $Work.1 of $Total $White"
 #testing that google is reachabel
 ping -qI enp0s8 -c 100 -i 0.002 8.8.8.8 | tee zwi
