@@ -24,7 +24,7 @@ echo 'network:
       dhcp4: no
       addresses: [192.168.1.2/24]
       nameservers:
-        addresses: [8.8.8.8, 8.8.4.4]
+        addresses: [192.168.71.23]
       routes:
       - to: default
         via: 192.168.1.1' >> $FILE
