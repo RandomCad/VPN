@@ -22,7 +22,7 @@ echo 'network:
   ethernets:
     enp0s8:
       dhcp4: no
-      addresses: [192.168.2.2/24]
+      addresses: [192.168.1.200/24]
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4]
       routes:
