@@ -4,7 +4,7 @@ Yellow="\033[1;33m"
 Blue="\033[1;34m"
 White="\033[0m"
 
-Total=4
+Total=5
 Work=1
 
 echo "$Green Running the central setup script for the net one client.$White"
