@@ -30,13 +30,13 @@ Die Ursprüngliche VM ist nun in 4 VM's zu vervielfältigen. Die folgende benenu
     * Adapter 1: Unverbunden
     * Adapter 2: Internes Netzwerk Benennung Bsp: **intnetLi**
     * Adapter 3: Internes Netzwerk verbunden mit '**intnetL**'
-       * Hierbei muss unter 'Erweitert' der Promiscous-Mode auf 'erlauben für alle VMs' gesetzt werden
+       * Hierbei muss unter '**Erweitert**' der Promiscous-Mode auf '**erlauben für alle VMs**' gesetzt werden
     * Adpater 4: Unverbunden
 * RouterR
     * Adapter 1: Unverbunden
     * Adapter 2: Internes Netzwerk Benennung Bsp: '**intnetRi**'
     * Adapter 3: Internes Netzwerk verbunden mit **intnetR**
-       * Hierbei muss unter 'Erweitert' der Promiscous-Mode auf 'erlauben für alle VMs' gesetzt werden
+       * Hierbei muss unter '**Erweitert**' der Promiscous-Mode auf '**erlauben für alle VMs**' gesetzt werden
     * Adpater 4: Unverbunden
 * ClientL
     * Adapter 1: Unverbunden
