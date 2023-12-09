@@ -1,17 +1,17 @@
-# Anleitung zur Instalation und nutzung von OpenVPN
+# Anleitung zur Instalation und Nutzung von OpenVPN
 ## Voraussetzungen
-Für die durchführung des Versuches werden min 5 unterschiedliche Linux VM's benötigt. Diese sollten ein Ubuntu oder Kubuntu OS installiert haben.  
-Es wird Virtuelbox zum ausführen der VM's verwendet. Eine Internet anschluss des Ausführenden Rechners wird benötigt.
-## Instalation einer VM
-Je nach eigenem bedarf kann eine neu VM verwendet werden. Es ist empfholen eine VM aufzusetzen und diese im folgenden 4-mal zu klonen um alle benötigte rechner zu erhalten. Da eine vielzahl von VM's benötigt wird, ist es empfählenswert eine Minimalistesche instalation durchzuführen, sowie eine geringe festpalttengöße zu wählen. Die Installation mit 15 GB ist möglich. 
-**Die sprache der zu verwendenden VM ist zwingend auf English zu stellen.**
+Für die Durchführung des Versuches werden min. 5 unterschiedliche Linux VM's benötigt. Diese sollten ein Ubuntu oder Kubuntu OS installiert haben.  
+Es wird Virtualbox zum Ausführen der VM's verwendet. Eine Internet-Anbindung des ausführenden Rechners wird benötigt.
+## Installation einer VM
+Je nach eigenem Bedarf kann eine neu VM verwendet werden. Es wird empfohlen eine VM aufzusetzen und diese im Folgenden 4-mal zu klonen um alle benötigten Rechner zu erhalten. Da eine Vielzahl von VM's benötigt wird, ist es empfehlenswert eine minimalistische Installation durchzuführen, sowie eine geringe Festplattengröße zu wählen. Die Installation mit 15 GB ist möglich. 
+**Die Sprache der zu verwendenden VMs ist zwingend auf Englisch zu stellen.**
 ## Ursprüngliches Setup
-Nachedem die zu klonende VM ausgewhält wurde sind folgenden schritte zu beachten:
+Nachdem die zu klonende VM ausgewählt wurde, sind folgenden Schritte zu beachten:
 1. Proxy einstellung vornehmen
 2. Maschine Updaten
 3. Folgende Packete instalieren: git, tcpdump, iperf3, vim
 4. Clone folgendes Direktorys: RandomCad/VPN befehl: `git clone https://github.com/RandomCad/VPN`
-5. Zum umschalten in den CLI modus folgenden befehl ausführen: `sudo systemctl set-default multi-user.target`
+5. Zum Umschalten in den CLI modus folgenden befehl ausführen: `sudo systemctl set-default multi-user.target`
 ## Kloning und VBox einstellungen
 Die Ursprüngliche VM ist nun in 4 VM's zu vervielfältigen. Die folgende benenung wird von uns verwendet:
 * RouterM
