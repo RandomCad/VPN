@@ -7,13 +7,14 @@ Je nach eigenem Bedarf kann eine neu VM verwendet werden. Es wird empfohlen eine
 **Die Sprache der zu verwendenden VMs ist zwingend auf Englisch zu stellen.**
 ## Ursprüngliches Setup
 Nachdem die zu klonende VM ausgewählt wurde, sind folgenden Schritte zu beachten:
-1. Proxy einstellung vornehmen
+1. Proxyeinstellung vornehmen (/etc/environment)
 2. Maschine Updaten
-3. Folgende Packete instalieren: git, tcpdump, iperf3, vim
-4. Clone folgendes Direktorys: RandomCad/VPN befehl: `git clone https://github.com/RandomCad/VPN`
-5. Zum Umschalten in den CLI modus folgenden befehl ausführen: `sudo systemctl set-default multi-user.target`
-## Kloning und VBox einstellungen
-Die Ursprüngliche VM ist nun in 4 VM's zu vervielfältigen. Die folgende benenung wird von uns verwendet:
+3. Folgende Packete installieren: git, tcpdump, iperf3, vim
+4. Kopieren folgendes Direktorys: RandomCad/VPN befehl: `git clone https://github.com/RandomCad/VPN`
+   bzw. Kopieren des (**gesamten**) Skripte-Ordners auf dem Transferlaufwerk
+6. Zum Umschalten in den CLI Modus folgenden Befehl ausführen: `sudo systemctl set-default multi-user.target`
+## Cloning und VBox Einstellungen
+Die Ursprüngliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenung wird von uns verwendet:
 * RouterM
 * RouterL
 * ClientL
@@ -22,35 +23,35 @@ Die Ursprüngliche VM ist nun in 4 VM's zu vervielfältigen. Die folgende benenu
 #TODO einfügen Klone anleitung
 ### Netzwerkkonfiguration
 * RouterM
-    * Adapter 1: Klasisches Nat network
-    * Adapter 2: Internes Netzwerk Benennung Bsp: '**intnetL**'
-    * Adapter 3: Internes Netzwerk Benennung Bsp: '**intnetR**'
+    * Adapter 1: Klassisches Nat Network
+    * Adapter 2: Internes Netzwerk, Benennung bspw: '**intnetL**'
+    * Adapter 3: Internes Netzwerk, Benennung bspw: '**intnetR**'
     * Adpater 4: Unverbunden
 * RouterL
     * Adapter 1: Unverbunden
-    * Adapter 2: Internes Netzwerk Benennung Bsp: **intnetLi**
-    * Adapter 3: Internes Netzwerk verbunden mit '**intnetL**'
-       * Hierbei muss unter '**Erweitert**' der Promiscous-Mode auf '**erlauben für alle VMs**' gesetzt werden
+    * Adapter 2: Internes Netzwerk, Benennung bspw: **intnetLi**
+    * Adapter 3: Internes Netzwerk, verbunden mit '**intnetL**'
+       * Hierbei muss unter '**Erweitert**' der Promiscous-Modus auf '**erlauben für alle VMs**' gesetzt werden
     * Adpater 4: Unverbunden
 * RouterR
     * Adapter 1: Unverbunden
-    * Adapter 2: Internes Netzwerk Benennung Bsp: '**intnetRi**'
-    * Adapter 3: Internes Netzwerk verbunden mit **intnetR**
+    * Adapter 2: Internes Netzwerk, Benennung bspw: '**intnetRi**'
+    * Adapter 3: Internes Netzwerk, verbunden mit '**intnetR**'
        * Hierbei muss unter '**Erweitert**' der Promiscous-Mode auf '**erlauben für alle VMs**' gesetzt werden
     * Adpater 4: Unverbunden
 * ClientL
     * Adapter 1: Unverbunden
-    * Adapter 2: Internes Netzwerk verbunden mit **intnetLi**
+    * Adapter 2: Internes Netzwerk, verbunden mit **intnetLi**
     * Adapter 3: Unverbunden
     * Adpater 4: Unverbunden
 * ClientR
     * Adapter 1: Unverbunden
-    * Adapter 2: Internes Netzwerk verbunden mit **intnetRi**
+    * Adapter 2: Internes Netzwerk, verbunden mit **intnetRi**
     * Adapter 3: Unverbunden
     * Adpater 4: Unverbunden
-### System Leistungs einstellung
-Wir empfählen die Leistung der VM's herunter zu setzen.  
-1 Core reicht folständig aus. Das herrabsätzen der Execution kapp ist auch möglich. Wir empfehlen folgende einstellungen:
+### System - Leistungseinstellungen
+Wir empfehlen die Leistung der VMs auf ein funktionsfähiges Minimum zu reduzieren.  
+1 Core reicht vollkommen aus. Das Herabsetzen der Execution Capp ist auch möglich. Wir empfehlen folgende Einstellungen:
 ||Core Number|Execution Capp|Speicher|
 |:-----:|:-----:|:------------:|:-----:|
 |RouterM|1|80%|650 MB|
@@ -59,6 +60,6 @@ Wir empfählen die Leistung der VM's herunter zu setzen.
 |ClientL|1|50%|650 MB|
 |ClientR|1|50%|650 MB|
 # Ausführung der Scripte
-Die skripte sind mit oder ohne sudo auszuführen. Sie werden in jedem falle eine sudo berechtigung durchführen müssen. Es ist zu empfählen die Skripte vom M-Router aus auszuführen. Es ist zu erwarten, dass die skripte isbesondere nich beim ersten durchlauf Ohne fehlermeldung durchgeführt werden können.  
+Die Skripte sind mit oder ohne sudo auszuführen. Sie werden in jedem Falle eine sudo Berechtigung durchführen müssen. Ausnahme hiervon sind die beiden Skripte **vpn_r-L_client.sh** und **vpn_r-R_server.sh**, welche zwingend mit Sudo ausgeführt werden müssen. Es ist empfehlenswert die Skripte vom M-Router aus auszuführen. Es ist zu erwarten, dass die Skripte insbesondere beim ersten Durchlauf nicht ohne Fehlermeldung durchgeführt werden können.  
 
 
