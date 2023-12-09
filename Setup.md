@@ -29,7 +29,7 @@ Die Ursprüngliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenu
     * Adpater 4: Unverbunden
 * RouterL
     * Adapter 1: Unverbunden
-    * Adapter 2: Internes Netzwerk, Benennung bspw: **intnetLi**
+    * Adapter 2: Internes Netzwerk, Benennung bspw: '**intnetLi**'
     * Adapter 3: Internes Netzwerk, verbunden mit '**intnetL**'
        * Hierbei muss unter '**Erweitert**' der Promiscous-Modus auf '**erlauben für alle VMs**' gesetzt werden
     * Adpater 4: Unverbunden
