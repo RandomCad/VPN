@@ -61,7 +61,7 @@ Wir empfehlen die Leistung der VMs auf ein funktionsfähiges Minimum zu reduzier
 |ClientR|1|50%|650 MB|
 # Ausführung der Skripte
 Die Skripte sind mit oder ohne sudo auszuführen. Sie werden in jedem Falle eine sudo Berechtigung durchführen müssen. Ausnahme hiervon sind die beiden Skripte **vpn_r-L_client.sh** und **vpn_r-R_server.sh**, welche zwingend mit Sudo ausgeführt werden müssen. Es ist empfehlenswert die Skripte vom M-Router als erstes auszuführen. Es wird folgende Durchführung empfohlen:
-##Netzwerkskripte:
+## Netzwerkskripte:
 * Router M
    * N_netplan.sh
    * N_test.sh
@@ -80,7 +80,8 @@ Die Skripte sind mit oder ohne sudo auszuführen. Sie werden in jedem Falle eine
 * Client R
    * N_netplan.sh
    * N_test.sh
-##VPN Skripte
+
+## VPN Skripte
 * Router R
    * server.sh
       * dieses sollte bei dem ersten Durchlauf mehrere Keyfiles und Zertifikate erzeugen
