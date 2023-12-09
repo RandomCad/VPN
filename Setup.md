@@ -59,7 +59,42 @@ Wir empfehlen die Leistung der VMs auf ein funktionsfähiges Minimum zu reduzier
 |RouterR|1|60%|650 MB|
 |ClientL|1|50%|650 MB|
 |ClientR|1|50%|650 MB|
-# Ausführung der Scripte
-Die Skripte sind mit oder ohne sudo auszuführen. Sie werden in jedem Falle eine sudo Berechtigung durchführen müssen. Ausnahme hiervon sind die beiden Skripte **vpn_r-L_client.sh** und **vpn_r-R_server.sh**, welche zwingend mit Sudo ausgeführt werden müssen. Es ist empfehlenswert die Skripte vom M-Router aus auszuführen. Es ist zu erwarten, dass die Skripte insbesondere beim ersten Durchlauf nicht ohne Fehlermeldung durchgeführt werden können.  
+# Ausführung der Skripte
+Die Skripte sind mit oder ohne sudo auszuführen. Sie werden in jedem Falle eine sudo Berechtigung durchführen müssen. Ausnahme hiervon sind die beiden Skripte **vpn_r-L_client.sh** und **vpn_r-R_server.sh**, welche zwingend mit Sudo ausgeführt werden müssen. Es ist empfehlenswert die Skripte vom M-Router als erstes auszuführen. Es wird folgende Durchführung empfohlen:
+##Netzwerkskripte:
+* Router M
+   * N_netplan.sh
+   * N_test.sh
+      * dieses sollte 2 Fehlermeldung generieren (da die beiden anderen Router noch nicht konfiguriert sind)
+* Router L
+   * N_netplan.sh
+   * N_test.sh
+      * dieses sollte 1 Fehlermeldung generieren (da der zugehörige Client noch nicht konfiguriert ist)
+* Client L
+   * N_netplan.sh
+   * N_test.sh
+* Router R
+   * N_netplan.sh
+   * N_test.sh
+      * dieses sollte 1 Fehlermeldung generieren (da der zugehörige Client noch nicht konfiguriert ist)
+* Client R
+   * N_netplan.sh
+   * N_test.sh
+##VPN Skripte
+* Router R
+   * server.sh
+      * dieses sollte bei dem ersten Durchlauf mehrere Keyfiles und Zertifikate erzeugen
+   * Kopieren der Zertifikate ca.crt, client.crt und der Schlüssel client.key, ta.key in einen geteilten Ordner des Hostsystems
+* Router L
+   * client.sh
+      * dieses sollte einen Fehler erzeugen, da die Keyfiles und Zertifikate fehlen
+   * Kopieren der Zertifikate ca.crt, client.crt und der Schlüssel client.key, ta.key vom geteilten Ordner des Hostsystems nach /etc/openvpn/keys
+   * client.sh
+   * test.sh
+      * läuft schief, weil VirtualBox die Bridge blockiert
+   * closeSession.sh
+   * client.sh --no-bridge
+   * test.sh
+      * läuft immernoch schief, zeigt aber, das VPN Verbindung zustande kommt 
 
 
