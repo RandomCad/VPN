@@ -25,11 +25,11 @@ Die Ursprükgliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenu
 ### VM's Clonen
 Zuerst ist das Klonen für die gewollte Basismaschine auszuwählen. Hier auf öffnet sich ein neues Fenster. In
 diesem ist der Name der neuen Maschine anzugeben, sowie die 'MAC Address Policy' auf 'Generat new MAC addresses for all network adapters' auszuwählen.  
-![image info](./Pictures/Clone1.png)
+![image info](./Pictures/Clone1.png)  
 Im nächsten Fenster ist *Full clone* auszuwählen.  
-![image info](./Pictures/Clone2.png)
+![image info](./Pictures/Clone2.png)  
 Die Einstellungen im letzten Fenster sind nicht weiter relevant.  
-![image info](./Pictures/Clone3.png)
+![image info](./Pictures/Clone3.png)  
 ### Netzwerkkonfiguration
 * RouterM
     * Adapter 1: Klassisches Nat Network
@@ -42,7 +42,7 @@ Die Einstellungen im letzten Fenster sind nicht weiter relevant.
     * Adapter 3: Internes Netzwerk, verbunden mit '**intnetL**'
        * Hierbei muss unter '**Erweitert**' der Promiscous-Modus auf '**erlauben für alle VMs**' gesetzt werden
     * Adapter 4: Unverbunden  
-![image info](./Pictures/Network1.png)
+![image info](./Pictures/Network1.png)  
 * RouterR
     * Adapter 1: Unverbunden
     * Adapter 2: Internes Netzwerk, Benennung bspw: '**intnetRi**'
