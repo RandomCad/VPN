@@ -22,16 +22,29 @@ echo 'network:
   ethernets:
     enp0s8:
       dhcp4: no
-      addresses: [192.168.1.2/24]
-      nameservers:
-        addresses: [192.168.71.23]
+      addresses: [192.168.2.3/24]
       routes:
       - to: default
-        via: 192.168.1.1' >> $FILE
+        via: 192.168.2.1
+      - to: 192.168.1.0/24
+        via: 192.168.2.1' >> $FILE
 
 sudo chmod 600 $FILE
 
 sudo netplan apply
+      
+#add nameserver
+if grep -q 'nameserver 8.8.8.8' /etc/resolv.conf || grep -q 'nameserver 8.8.4.4' /etc/resolv.conf ; then
+  #nameserver already set
+  echo 'nameserver is set corectly'
+else
+  sed -i -e '$anameserver 8.8.8.8' /etc/resolv.conf
+fi
+
+sudo systemctl restart systemd-resolved.service
 
 #cleanup
 rm zwi -f
+
+
+

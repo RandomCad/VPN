@@ -22,12 +22,12 @@ echo 'network:
   ethernets:
     enp0s8:
       dhcp4: no
-      addresses: [192.168.1.200/24]
+      addresses: [192.168.2.2/24]
       nameservers:
         addresses: [192.168.71.23]
       routes:
       - to: default
-        via: 192.168.1.254' >> $FILE
+        via: 192.168.2.1' >> $FILE
 
 sudo chmod 600 $FILE
 

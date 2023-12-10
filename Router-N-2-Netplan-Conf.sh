@@ -22,7 +22,7 @@ echo 'network:
   ethernets:
     enp0s8:
       dhcp4: no
-      addresses: [192.168.1.254/24]
+      addresses: [192.168.2.1/24]
     enp0s9:
       dhcp4: no
       addresses: [5.4.3.2/24]
