@@ -3,18 +3,20 @@
 Für die Durchführung des Versuches werden min. 5 unterschiedliche Linux VM's benötigt. Diese sollten ein Ubuntu oder Kubuntu OS installiert haben.  
 Es wird Virtualbox zum Ausführen der VM's verwendet. Eine Internet-Anbindung des ausführenden Rechners wird benötigt.
 ## Installation einer VM
-Je nach eigenem Bedarf kann eine neu VM verwendet werden. Es wird empfohlen eine VM aufzusetzen und diese im Folgenden 4-mal zu klonen um alle benötigten Rechner zu erhalten. Da eine Vielzahl von VM's benötigt wird, ist es empfehlenswert eine minimalistische Installation durchzuführen, sowie eine geringe Festplattengröße zu wählen. Die Installation mit 15 GB ist möglich. 
+Je nach eigenem Bedarf kann eine neu VM verwendet werden. Es wird empfohlen eine VM aufzusetzen und diese im Folgenden 4-mal zu klonen, um alle benötigten Rechner zu erhalten. Da eine Vielzahl von VM's benötigt wird, ist es empfehlenswert eine minimalistische Installation durchzuführen.  
+
 **Die Sprache der zu verwendenden VMs ist zwingend auf Englisch zu stellen.**
 ## Ursprüngliches Setup
 Nachdem die zu klonende VM ausgewählt wurde, sind folgenden Schritte zu beachten:
 1. Proxyeinstellung vornehmen (/etc/environment)
 2. Maschine Updaten
-3. Folgende Packete installieren: git, tcpdump, iperf3, vim
-4. Kopieren folgendes Direktorys: RandomCad/VPN befehl: `git clone https://github.com/RandomCad/VPN`
-   bzw. Kopieren des (**gesamten**) Skripte-Ordners auf dem Transferlaufwerk
+3. Folgende Pakete installieren: git, tcpdump, iperf3, vim (`sudo apt install git tcpdump iperf3 vim`)
+4. Kopieren der Scripte. Es gibt zwei Ausführungen
+    1. Skripte für eigene Rechner. Liegen im folgenden Directory: `git clone https://github.com/RandomCad/VPN` oder auf dem Transferlaufwerk unter dem Ordner *Personen-Skripte*
+    1. Skripte für die Unirechner (pool) liegen auf gihub in der branche **University** `git switch University` oder auf dem Transferlaufwerk unter dem Ordner *Universitäts-Scripte*
 6. Zum Umschalten in den CLI Modus folgenden Befehl ausführen: `sudo systemctl set-default multi-user.target`
 ## Cloning und VBox Einstellungen
-Die Ursprüngliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenung wird von uns verwendet:
+Die Ursprükgliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenung wird von uns verwendet:
 * RouterM
 * RouterL
 * ClientL
