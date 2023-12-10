@@ -4,7 +4,7 @@ Yellow="\033[1;33m"
 Blue="\033[1;34m"
 White="\033[0m"
 
-Total=4
+Total=5
 Work=1
 
 echo "$Green Running the central setup script for the net too client.$White"
@@ -60,10 +60,10 @@ echo "$Blue Checking internet conection. Start $Work.1 of $Total $White"
 #testing that google is reachabel
 ping -qI enp0s8 -c 100 -i 0.002 8.8.8.8 | tee zwi
 if ! cat zwi | grep -q "received, .% packet" ; then
-  echo "$Red Connecting to google failed. Pleas make shure, that the enp0s9 intervace is conected to the middel router.$White"
+  echo "$Red Connecting to google failed. Please make shure, that the enp0s8 interface is connected to the middle router.$White"
   return 1
 fi
-echo "$Blue Checking internet conection. Done $Work of $Total $White"
+echo "$Blue Checking internet connection. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
 #TODO: is ther further setup needed?
