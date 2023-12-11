@@ -50,7 +50,7 @@ Work=$(($Work + 1))
 
 #run the static Ip setup
 echo "$Blue Setting up static ip addresses and ip forwarding. Start $Work of $Total $White"
-sudo bash ./Client-N-2-Netplan-Conf.sh
+sudo bash ./src/vpn_client-R_netplanConf.sh
 echo "$Blue Static ip address setup. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
