@@ -16,7 +16,7 @@ Nachdem die zu klonende VM ausgewählt wurde, sind folgenden Schritte zu beachte
     1. Skripte für die Unirechner (pool) liegen auf gihub in der branche **University** `git switch University` oder auf dem Transferlaufwerk unter dem Ordner *Universitäts-Scripte*
 6. Zum Umschalten in den CLI Modus folgenden Befehl ausführen: `sudo systemctl set-default multi-user.target`
 ## Cloning und VBox Einstellungen
-Die Ursprükgliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenung wird von uns verwendet:
+Die Ursprüngliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenung wird von uns verwendet:
 * RouterM
 * RouterL
 * ClientL
