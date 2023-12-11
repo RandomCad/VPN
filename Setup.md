@@ -1,4 +1,4 @@
-# Anleitung zur Instalation und Nutzung von OpenVPN
+# Anleitung zur Installation und Nutzung von OpenVPN
 ## Voraussetzungen
 Für die Durchführung des Versuches werden min. 5 unterschiedliche Linux VM's benötigt. Diese sollten ein Ubuntu oder Kubuntu OS installiert haben.  
 Es wird Virtualbox zum Ausführen der VM's verwendet. Eine Internet-Anbindung des ausführenden Rechners wird benötigt.
