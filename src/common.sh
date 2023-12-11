@@ -8,19 +8,19 @@ declare -A colors=( [none]='\033[0m' [red]='\033[0;31m' [green]='\033[0;32m' [ye
 
 # Funktion für Informative Ausgabe
 info() {
-    echo -e "${colors[green]}*>${colors[none]} $1"
+    echo -e "${colors[green]}*> $1 ${colors[none]}"
     [[ -w $logFile ]] && echo "$( date "+%T" ) [INFO] $1" >> $logFile
 }
 
 # Funktion für Warnungen
 warn() {
-    echo -e "${colors[yellow]}*>${colors[none]} $1"
+    echo -e "${colors[yellow]}*> $1 ${colors[none]}"
     [[ -w $logFile ]] && echo "$( date "+%T" ) [WARN] $1" >> $logFile
 }
 
 # Funktion für Fehler
 err() {
-    echo -e "${colors[red]}*>${colors[none]} $1"
+    echo -e "${colors[red]}*> $1 ${colors[none]}"
     [[ -w $logFile ]] && echo "$( date "+%T" ) [ERR]  $1" >> $logFile
     exit 1
 }
