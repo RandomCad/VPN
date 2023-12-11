@@ -7,7 +7,7 @@ White="\033[0m"
 Total=5
 Work=1
 
-echo "$Green Running the central setup script for the net too router.$White"
+echo "$Green Running the central setup script for the net one router.$White"
 
 #Testing the existenc of the network adapters and what ty can reach 
 echo "$Blue Checking network setup. Start $Work of $Total  $White"
@@ -20,7 +20,7 @@ if $(ip a | grep -q "enp0s3"); then
   if cat zwi | grep -q "received, .% packet" ; then
     echo "$Red Connecting to google throw enp0s3 was posibel. Pleas remove the interface or deconect it from the internet. All conections of this computer shud run throw enp0s8.$White"
     #google is reachebal this isn't ok
-    return 1
+    exit 1
   fi
 
 fi
@@ -28,13 +28,13 @@ fi
 #testing enp0s8 thsi wone is needed!
 if ! $(ip a | grep -q "enp0s8"); then
 	echo "$Red No enp0s8 network interface detected. This interface is used to communicat with the internal network. Pleas set it up. $White"
-  return 1
+  exit 1
 fi
 
 #testing enp0s9 it shouldn't exist
 if ! $(ip a | grep -q "enp0s9"); then
 	echo "$Red No enp0s9 network interface detected. This interface while be used to conect to the rest of the world. Pleas set it up. $White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking network setup. Done $Work of $Total  $White"
 Work=$(($Work + 1))
@@ -43,14 +43,14 @@ Work=$(($Work + 1))
 echo "$Blue Checking the instalation of Netplan. Start $Work of $Total $White"
 if ! $(apt-cache policy netplan.io | grep -qe "Installed: .*ubuntu.*$") ; then
   echo "$Red Netplan is not instaled. Pleas install and use netplan as standart Networkmaneger $White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking the instalation of Netplan. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
 #run the static Ip setup
 echo "$Blue Setting up static ip addresses and ip forwarding. Start $Work of $Total $White"
-sudo bash ./Router-N-2-Netplan-Conf.sh
+sudo bash ./src/vpn_router-L_netplanConf.sh
 sudo sysctl -p
 echo "$Blue Static ip address setup. Done $Work of $Total $White"
 Work=$(($Work + 1))
@@ -71,7 +71,8 @@ echo "$Blue Aktivating NAT-networking for now. Done $Work.2 of $Total $White"
 echo "$Blue Setting up NAT-networking. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
-ping -qI enp0s3 -c 1 8.8.8.8 2>&1 > /dev/null
+#Avther the reset the networkinterface dosen't jet have a ip address. It gets an Ip throw this ping call.
+ping -qI enp0s9 -c 1 8.8.8.8 2>&1 > /dev/null  
 
 echo "$Blue Checking network. Start $Work of $Total $White"
 Error=0
@@ -93,8 +94,8 @@ echo "$Blue Checking internet conection. Done $Work.1 of $Total $White"
 #fi
 #echo "$Blue Checking router net one conection. Done $Work.2 of $Total $White"
 
-echo "$Blue Checking router net one conection. Start $Work.3 of $Total $White"
-ping -qI enp0s9 -c 1000 -f 5.4.2.2 | tee zwi
+echo "$Blue Checking router net too conection. Start $Work.3 of $Total $White"
+ping -qI enp0s9 -c 1000 -f 5.4.3.2 | tee zwi
 if ! cat zwi | grep -q "received, .% packet" ; then
   echo "$Red Connecting to router net too failed. Pleas make shure, that the router is set up and connected.$White"
   Error=1
@@ -105,7 +106,7 @@ echo "$Blue Checking router net too conection. Done $Work.3 of $Total $White"
 if [ "$Error" -eq "1" ] ; then
   echo "$Red Network test didn't run corectly. This isn't a porbelm fore this machine but may hinder on other machines. $White"
   echo "$Yellow If the configuration fails enshurd, that netplan is the default network maneger!$White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking network. Done $Work of $Total $White"
 Work=$(($Work + 1))

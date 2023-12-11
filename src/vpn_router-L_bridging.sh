@@ -13,7 +13,7 @@ installPkg net-tools
 #Deklaration von Umgebungsvariablen,
 #um das zu bridgende Interface sowie die IP Adresse der Netzwerkbrücke einfach austauschbar zu machen
 intern_interface="enp0s8"
-bridge_ip="192.168.1.254"
+bridge_ip="192.168.1.1"
 bridge_netmask="255.255.255.0"
 bridge_broadcast="192.168.1.255"
 

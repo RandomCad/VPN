@@ -1,4 +1,4 @@
-# Anleitung zur Instalation und Nutzung von OpenVPN
+# Anleitung zur Installation und Nutzung von OpenVPN
 ## Voraussetzungen
 Für die Durchführung des Versuches werden min. 5 unterschiedliche Linux VM's benötigt. Diese sollten ein Ubuntu oder Kubuntu OS installiert haben.  
 Es wird Virtualbox zum Ausführen der VM's verwendet. Eine Internet-Anbindung des ausführenden Rechners wird benötigt.
@@ -73,39 +73,34 @@ Wir empfehlen die Leistung der VMs auf ein funktionsfähiges Minimum zu reduzier
 Die Skripte sind mit oder ohne sudo auszuführen. Sie werden in jedem Falle eine sudo Berechtigung durchführen müssen. Ausnahme hiervon sind die beiden Skripte **vpn_r-L_client.sh** und **vpn_r-R_server.sh**, welche zwingend mit Sudo ausgeführt werden müssen. Es ist empfehlenswert die Skripte vom M-Router als erstes auszuführen. Es wird folgende Durchführung empfohlen:
 ## Netzwerkskripte:
 * Router M
-   * N_netplan.sh
-   * N_test.sh
+   * _network.sh
       * dieses sollte 2 Fehlermeldung generieren (da die beiden anderen Router noch nicht konfiguriert sind)
 * Router L
-   * N_netplan.sh
-   * N_test.sh
+   * _network.sh
       * dieses sollte 1 Fehlermeldung generieren (da der zugehörige Client noch nicht konfiguriert ist)
 * Client L
-   * N_netplan.sh
-   * N_test.sh
+   * _network.sh
 * Router R
-   * N_netplan.sh
-   * N_test.sh
+   * _network.sh
       * dieses sollte 1 Fehlermeldung generieren (da der zugehörige Client noch nicht konfiguriert ist)
 * Client R
-   * N_netplan.sh
-   * N_test.sh
+   * _network.sh
 
 ## VPN Skripte
 * Router R
-   * server.sh
+   * _server.sh
       * dieses sollte bei dem ersten Durchlauf mehrere Keyfiles und Zertifikate erzeugen
    * Kopieren der Zertifikate ca.crt, client.crt und der Schlüssel client.key, ta.key in einen geteilten Ordner des Hostsystems
 * Router L
-   * client.sh
+   * _client.sh
       * dieses sollte einen Fehler erzeugen, da die Keyfiles und Zertifikate fehlen
    * Kopieren der Zertifikate ca.crt, client.crt und der Schlüssel client.key, ta.key vom geteilten Ordner des Hostsystems nach /etc/openvpn/keys
-   * client.sh
-   * test.sh
+   * _client.sh
+   * _test.sh
       * läuft schief, weil VirtualBox die Bridge blockiert
-   * closeSession.sh
-   * client.sh --no-bridge
-   * test.sh
+   * RL_closeSession.sh
+   * _client.sh --no-bridge
+   * _test.sh
       * läuft immernoch schief, zeigt aber, das VPN Verbindung zustande kommt 
 
 

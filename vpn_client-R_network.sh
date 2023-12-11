@@ -20,7 +20,7 @@ if $(ip a | grep -q "enp0s3"); then
   if cat zwi | grep -q "received, .% packet" ; then
     echo "$Red Connecting to google throw enp0s3 was posibel. Pleas remove the interface or deconect it from the internet. All conections of this computer shud run throw enp0s8.$White"
     #google is reachebal this isn't ok
-    return 1
+    exit 1
   fi
 
 fi
@@ -28,13 +28,13 @@ fi
 #testing enp0s8 thsi wone is needed!
 if ! $(ip a | grep -q "enp0s8"); then
 	echo "$Red No enp0s8 network interface detected. This interface is used to communicat with the internal network. Pleas set it up. $White"
-  return 1
+  exit 1
 fi
 
 #testing enp0s9 it shouldn't exist
 if $(ip a | grep -q "enp0s9"); then
 	echo "$Red enp0s9 network interface detected. This interface isn't needed and moust be removed. $White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking network setup. Done $Work of $Total  $White"
 Work=$(($Work + 1))
@@ -43,14 +43,14 @@ Work=$(($Work + 1))
 echo "$Blue Checking the instalation of Netplan. Start $Work of $Total $White"
 if ! $(apt-cache policy netplan.io | grep -qe "Installed: .*ubuntu.*$") ; then
   echo "$Red Netplan is not instaled. Pleas install and use netplan as standart Networkmaneger $White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking the instalation of Netplan. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
 #run the static Ip setup
 echo "$Blue Setting up static ip addresses and ip forwarding. Start $Work of $Total $White"
-sudo bash ./Client-N-2-Netplan-Conf.sh
+sudo bash ./src/vpn_client-R_netplanConf.sh
 echo "$Blue Static ip address setup. Done $Work of $Total $White"
 Work=$(($Work + 1))
 
@@ -61,7 +61,7 @@ echo "$Blue Checking internet conection. Start $Work.1 of $Total $White"
 ping -qI enp0s8 -c 100 -i 0.002 8.8.8.8 | tee zwi
 if ! cat zwi | grep -q "received, .% packet" ; then
   echo "$Red Connecting to google failed. Please make shure, that the enp0s8 interface is connected to the middle router.$White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking internet connection. Done $Work of $Total $White"
 Work=$(($Work + 1))
