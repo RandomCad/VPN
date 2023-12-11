@@ -14,12 +14,12 @@ startScript
 
 # Testen, ob über den VPN Kanal eine Verbindung zum rechten Router möglich ist
 info "testen, ob VPN Kanal zum rechten Router besteht:"
-ping -c 100 -i 0.002 192.168.1.254 | tee zwi
+ping -c 10 -i 0.002 192.168.1.254 | tee zwi
 if cat zwi | grep -q "received, .% packet"; then
     info "VPN Kanal besteht"
     # Testen, ob Client erreichbar
     info "testen, ob rechter Client (hinter der Netzwerkbrücke) erreichbar ist:"
-    ping -c 100 -i 0.002 192.168.1.200 | tee zwi
+    ping -c 10 -i 0.002 192.168.1.200 | tee zwi
     if cat zwi | grep -q "received, .% packet"; then
         info "VPN funktioniert einwandfrei"
     else

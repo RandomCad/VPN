@@ -42,7 +42,7 @@ ensureRoot
 installPkg openvpn
 
 #Prüfen, ob Schlüsselverzeichnis vorhanden, ansonsten Erstellen und Abbruch
-if [[ ! -f "/etc/openvpn/keys" ]]; then
+if [[ ! -d "/etc/openvpn/keys" ]]; then
     mkdir "/etc/openvpn/keys"
     err "Das Skript kann erst erfolgreich durchlaufen werden, wenn die Zertifikate ca.crt, client.crt und die Schlüssel client.key, ta.key in das Verzeichnis /etc/openvpn/keys kopiert wurden!"
 fi

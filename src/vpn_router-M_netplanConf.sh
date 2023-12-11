@@ -5,7 +5,7 @@ for i in $(ls /etc/netplan/ | grep '.*yaml'); do
 	echo $i
 done | sort > zwi
 
-#get the numbering of the higest numbered file
+#get the numbering of the highest numbered file
 files=$(tail -1 zwi)
 FileNum=$(echo $files | grep -o -E '[0-9]+' )
 
