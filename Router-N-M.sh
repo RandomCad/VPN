@@ -12,15 +12,15 @@ echo "$Green Running the central setup script for the middel router.$White"
 echo "$Blue Checking network setup. Start $Work of $Total  $White"
 if ! $(ip a | grep -q "enp0s3"); then
 	echo "$Red No enp0s3 network interface detected. This interface while be used to conect to the internet. Pleas set it up. $White"
-	return 1
+	exit 1
 fi
 if ! $(ip a | grep -q "enp0s8"); then
 	echo "$Red No enp0s8 network interface detected. This interface while be used to conect to the first network. Pleas set it up. $White"
-  return 1
+  exit 1
 fi
 if ! $(ip a | grep -q "enp0s9"); then
 	echo "$Red No enp0s9 network interface detected. This interface while be used to conect to the second network. Pleas set it up. $White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking network setup. Done $Work of $Total  $White"
 Work=$(($Work + 1))
@@ -29,7 +29,7 @@ Work=$(($Work + 1))
 echo "$Blue Checking the instalation of Netplan. Start $Work of $Total $White"
 if ! $(apt-cache policy netplan.io | grep -qe "Installed: .*ubuntu.*$") ; then
   echo "$Red Netplan is not instaled. Pleas install and use netplan as standart Networkmaneger $White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking the instalation of Netplan. Done $Work of $Total $White"
 Work=$(($Work + 1))
@@ -94,7 +94,7 @@ echo "$Blue Checking router net too conection. Done $Work.3 of $Total $White"
 if [ "$Error" -eq "1" ] ; then
   echo "$Red Network test didn't run corectly. This isn't a porbelm fore this machine but may hinder on other machines. $White"
   echo "$Yellow If the configuration fails enshurd, that netplan is the default network maneger!$White"
-  return 1
+  exit 1
 fi
 echo "$Blue Checking network. Done $Work of $Total $White"
 Work=$(($Work + 1))
