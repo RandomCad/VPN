@@ -16,7 +16,7 @@ Nachdem die zu klonende VM ausgewählt wurde, sind folgenden Schritte zu beachte
     1. Skripte für die Unirechner (pool) liegen auf gihub in der branche **University** `git switch University` oder auf dem Transferlaufwerk unter dem Ordner *Universitäts-Scripte*
 6. Zum Umschalten in den CLI Modus folgenden Befehl ausführen: `sudo systemctl set-default multi-user.target`
 ## Cloning und VBox Einstellungen
-Die Ursprükgliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenung wird von uns verwendet:
+Die Ursprüngliche VM ist nun in 4 VMs zu vervielfältigen. Die folgende Bennenung wird von uns verwendet:
 * RouterM
 * RouterL
 * ClientL
@@ -32,33 +32,33 @@ Die Einstellungen im letzten Fenster sind nicht weiter relevant.
 ![image info](./Pictures/Clone3.png)  
 ### Netzwerkkonfiguration
 * RouterM
-    * Adapter 1: Klassisches Nat Network
+    * Adapter 1: Klassisches Nat Network (angeschlossen an NAT)
     * Adapter 2: Internes Netzwerk, Benennung bspw: '**intnetL**'
     * Adapter 3: Internes Netzwerk, Benennung bspw: '**intnetR**'
-    * Adapter 4: Unverbunden
+    * Adapter 4: Nicht aktiviert
 * RouterL
-    * Adapter 1: Unverbunden
+    * Adapter 1: Nicht aktiviert
     * Adapter 2: Internes Netzwerk, Benennung bspw: '**intnetLi**'
     * Adapter 3: Internes Netzwerk, verbunden mit '**intnetL**'
        * Hierbei muss unter '**Erweitert**' der Promiscous-Modus auf '**erlauben für alle VMs**' gesetzt werden
-    * Adapter 4: Unverbunden  
+    * Adapter 4: Nicht aktiviert  
 ![image info](./Pictures/Network1.png)  
 * RouterR
-    * Adapter 1: Unverbunden
+    * Adapter 1: Nicht aktiviert
     * Adapter 2: Internes Netzwerk, Benennung bspw: '**intnetRi**'
     * Adapter 3: Internes Netzwerk, verbunden mit '**intnetR**'
        * Hierbei muss unter '**Erweitert**' der Promiscous-Mode auf '**erlauben für alle VMs**' gesetzt werden
-    * Adapter 4: Unverbunden
+    * Adapter 4: Nicht aktiviert
 * ClientL
-    * Adapter 1: Unverbunden
+    * Adapter 1: Nicht aktiviert
     * Adapter 2: Internes Netzwerk, verbunden mit **intnetLi**
-    * Adapter 3: Unverbunden
-    * Adapter 4: Unverbunden
+    * Adapter 3: Nicht aktiviert
+    * Adapter 4: Nicht aktiviert
 * ClientR
-    * Adapter 1: Unverbunden
+    * Adapter 1: Nicht aktiviert
     * Adapter 2: Internes Netzwerk, verbunden mit **intnetRi**
-    * Adapter 3: Unverbunden
-    * Adapter 4: Unverbunden
+    * Adapter 3: Nicht aktiviert
+    * Adapter 4: Nicht aktiviert
 ### System - Leistungseinstellungen
 Wir empfehlen die Leistung der VMs auf ein funktionsfähiges Minimum zu reduzieren.  
 1 Core reicht vollkommen aus. Das Herabsetzen der Execution Capp ist auch möglich. Wir empfehlen folgende Einstellungen:
