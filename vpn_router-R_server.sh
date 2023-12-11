@@ -20,14 +20,14 @@ if [[ ! -f "./src/common.sh" ]]; then
     echo "./src/common.sh ist nicht vorhanden! Diese ist für das Skript essentiell!"
     exit 1
 fi 
-if [[ ! -f "./src/vpn_r-R_bridging.sh" ]]; then
-    err "./src/vpn_r-R_bridging.sh ist nicht vorhanden! Diese ist für das Skript essentiell!"
+if [[ ! -f "./src/vpn_router-R_bridging.sh" ]]; then
+    err "./src/vpn_router-R_bridging.sh ist nicht vorhanden! Diese ist für das Skript essentiell!"
 fi 
-if [[ ! -f "./src/r-R.conf" ]]; then
-    if [[ ! -f "/etc/openvpn/r-R.conf" ]]; then
-        err "./src/r-R.conf ist nicht vorhanden! Diese ist für das Skript essentiell!"
+if [[ ! -f "./src/router-R.conf" ]]; then
+    if [[ ! -f "/etc/openvpn/router-R.conf" ]]; then
+        err "./src/router-R.conf ist nicht vorhanden! Diese ist für das Skript essentiell!"
     else 
-        warn "./src/r-R.conf ist nicht vorhanden! Jedoch existiert bereits eine OpenVPN Konfiguration /etc/openvpn/r-R.conf"
+        warn "./src/router-R.conf ist nicht vorhanden! Jedoch existiert bereits eine OpenVPN Konfiguration /etc/openvpn/router-R.conf"
     fi 
 fi 
 
@@ -38,13 +38,13 @@ ensureRoot
 installPkg openvpn 
 
 # # Beenden aller potentiell bestehenden VPN Verbindungen und schließen derer Netzwerkadapter und Brücken
-# ./vpn_r-RL_closeSession.sh
+# ./vpn_router-RL_closeSession.sh
 # Definieren der benötigten virtuellen Netzwerkschnittstelle und Bridgen dieser mit dem physischen Netzwerkadapter
-./src/vpn_r-R_bridging.sh --unfunny
+./src/vpn_router-R_bridging.sh --unfunny
 
 # Prüfen, ob Konfigurationsdatei bereits vorhanden, wenn nicht dann Kopieren dieser
-if [[ ! -f "/etc/openvpn/r-R.conf" ]]; then
-    cp ./src/r-R.conf /etc/openvpn/
+if [[ ! -f "/etc/openvpn/router-R.conf" ]]; then
+    cp ./src/router-R.conf /etc/openvpn/
 fi 
 
 # Prüfen, ob Schlüssel und Zertifikate bereits vorhanden. Ansonsten generieren dieser
@@ -66,4 +66,4 @@ endScript
 # Starten der OpenVPN Sitzung:
 header "Starten der OpenVPN Sitzung" -t 1 -f green -c green
 cd /etc/openvpn || exit 1
-openvpn r-R.conf &
+openvpn router-R.conf &
