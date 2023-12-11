@@ -52,7 +52,7 @@ Die Einstellungen im letzten Fenster sind nicht weiter relevant.
 * ClientL
     * Adapter 1: Nicht aktiviert
     * Adapter 2: Internes Netzwerk, verbunden mit **intnetLi**
-    * Adapter 3: Unverbunden
+    * Adapter 3: Nicht aktiviert
     * Adapter 4: Nicht aktiviert
 * ClientR
     * Adapter 1: Nicht aktiviert
