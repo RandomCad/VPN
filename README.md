@@ -33,16 +33,16 @@ Feel free to fork this project and submit pull requests for enhancements, bug fi
 
 Please review and adhere to our Code of Conduct when participating in this project. We aim to foster an inclusive and welcoming community.
 
-# Repository Structure
+## Repository Structure
 
 This section outlines the structure of the project repository and provides an overview of the main directories and files within the project.
 
-## Directory Structure
+### Directory Structure
 
 - `/Pictures`: Contains pictures for the `setup.md`.
 - `/src`: Folder for subscripts which are caled in the main/central scripts and thurther configuration files.
 
-## Files
+### Files
 
 - `README.md`: The main documentation file providing an overview of the project, setup instructions and contribution guidelines.
 - `LICENSE`: Contains licensing information for the project.
