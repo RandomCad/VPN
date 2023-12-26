@@ -5,11 +5,11 @@ for i in $(ls /etc/netplan/ | grep '.*yaml'); do
 	echo $i
 done | sort > zwi
 
-#get the numbering of the higest numberd file
+#get the numbering of the highest numbered file
 files=$(tail -1 zwi)
 FileNum=$(echo $files | grep -o -E '[0-9]+' )
 
-#creat the file name of the new file
+#create the file name of the new file
 if (( $FileNum < 9 )) ; then
   FILE=/etc/netplan/0$(($FileNum+1))-Inter-VM-Comm.yaml
 else
