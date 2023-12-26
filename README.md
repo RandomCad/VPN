@@ -58,13 +58,13 @@ In case of issues during the automated setup or VPN connection:
 
 ## Contributors
 
-- [Your Name]
-- [Other Group Members]
+- RandomCad
+- typingMathew
 
 ## License
 
-This project is licensed under [License Name]. See the LICENSE file for details.
+This project is licensed under GPL-3.0 license. See the LICENSE file for details.
 
 ## Acknowledgments
 
-Special thanks to [Professor's Name] for guidance and support during the course.
+Special thanks to *Professor Dr. Guenter* for guidance and support during the course.
